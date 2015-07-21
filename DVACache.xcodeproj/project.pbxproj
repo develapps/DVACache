@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E18EE301B5E52A000490CE2 /* DVACacheObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E18EE2E1B5E52A000490CE2 /* DVACacheObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E18EE311B5E52A000490CE2 /* DVACacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */; };
+		6E18EE321B5E52A000490CE2 /* DVACacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */; };
+		6E18EE351B5E5D7700490CE2 /* DVACache.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6E18EE331B5E5D7700490CE2 /* DVACache.podspec */; };
+		6E18EE361B5E5D7700490CE2 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6E18EE341B5E5D7700490CE2 /* README.md */; };
+		6E18EE381B5E5E6600490CE2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6E18EE371B5E5E6600490CE2 /* LICENSE */; };
 		6E19FD5C1B5E219D00EFF984 /* DVACache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E19FD5B1B5E219D00EFF984 /* DVACache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E19FD621B5E219D00EFF984 /* DVACache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E19FD561B5E219D00EFF984 /* DVACache.framework */; };
 		6E19FD691B5E219D00EFF984 /* DVACacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E19FD681B5E219D00EFF984 /* DVACacheTests.m */; };
+		6E19FD741B5E21FB00EFF984 /* DVACacheLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E19FD721B5E21FB00EFF984 /* DVACacheLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E19FD751B5E21FB00EFF984 /* DVACacheLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E19FD731B5E21FB00EFF984 /* DVACacheLib.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +31,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E18EE2E1B5E52A000490CE2 /* DVACacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVACacheObject.h; sourceTree = "<group>"; };
+		6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVACacheObject.m; sourceTree = "<group>"; };
+		6E18EE331B5E5D7700490CE2 /* DVACache.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DVACache.podspec; sourceTree = "<group>"; };
+		6E18EE341B5E5D7700490CE2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6E18EE371B5E5E6600490CE2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6E19FD561B5E219D00EFF984 /* DVACache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DVACache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E19FD5A1B5E219D00EFF984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E19FD5B1B5E219D00EFF984 /* DVACache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVACache.h; sourceTree = "<group>"; };
 		6E19FD611B5E219D00EFF984 /* DVACacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DVACacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E19FD671B5E219D00EFF984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E19FD681B5E219D00EFF984 /* DVACacheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DVACacheTests.m; sourceTree = "<group>"; };
+		6E19FD721B5E21FB00EFF984 /* DVACacheLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVACacheLib.h; sourceTree = "<group>"; };
+		6E19FD731B5E21FB00EFF984 /* DVACacheLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVACacheLib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +68,9 @@
 		6E19FD4C1B5E219D00EFF984 = {
 			isa = PBXGroup;
 			children = (
+				6E18EE371B5E5E6600490CE2 /* LICENSE */,
+				6E18EE331B5E5D7700490CE2 /* DVACache.podspec */,
+				6E18EE341B5E5D7700490CE2 /* README.md */,
 				6E19FD581B5E219D00EFF984 /* DVACache */,
 				6E19FD651B5E219D00EFF984 /* DVACacheTests */,
 				6E19FD571B5E219D00EFF984 /* Products */,
@@ -71,6 +89,7 @@
 		6E19FD581B5E219D00EFF984 /* DVACache */ = {
 			isa = PBXGroup;
 			children = (
+				6E19FD771B5E220000EFF984 /* cache */,
 				6E19FD5B1B5E219D00EFF984 /* DVACache.h */,
 				6E19FD591B5E219D00EFF984 /* Supporting Files */,
 			);
@@ -102,6 +121,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6E19FD771B5E220000EFF984 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				6E19FD721B5E21FB00EFF984 /* DVACacheLib.h */,
+				6E19FD731B5E21FB00EFF984 /* DVACacheLib.m */,
+				6E18EE2E1B5E52A000490CE2 /* DVACacheObject.h */,
+				6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */,
+			);
+			name = cache;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -110,6 +140,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E19FD5C1B5E219D00EFF984 /* DVACache.h in Headers */,
+				6E19FD741B5E21FB00EFF984 /* DVACacheLib.h in Headers */,
+				6E18EE301B5E52A000490CE2 /* DVACacheObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +224,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E18EE381B5E5E6600490CE2 /* LICENSE in Resources */,
+				6E18EE351B5E5D7700490CE2 /* DVACache.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +243,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E18EE361B5E5D7700490CE2 /* README.md in Sources */,
+				6E19FD751B5E21FB00EFF984 /* DVACacheLib.m in Sources */,
+				6E18EE311B5E52A000490CE2 /* DVACacheObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E19FD691B5E219D00EFF984 /* DVACacheTests.m in Sources */,
+				6E18EE321B5E52A000490CE2 /* DVACacheObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +436,7 @@
 				6E19FD6E1B5E219D00EFF984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E19FD6F1B5E219D00EFF984 /* Build configuration list for PBXNativeTarget "DVACacheTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +445,7 @@
 				6E19FD711B5E219D00EFF984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,24 +1,21 @@
 # DVACache
 
-[![CI Status](http://img.shields.io/travis/Pablo Romeu/DVACache.svg?style=flat)](https://travis-ci.org/Pablo Romeu/DVACache)
-[![Version](https://img.shields.io/cocoapods/v/DVACache.svg?style=flat)](http://cocoapods.org/pods/DVACache)
-[![License](https://img.shields.io/cocoapods/l/DVACache.svg?style=flat)](http://cocoapods.org/pods/DVACache)
-[![Platform](https://img.shields.io/cocoapods/p/DVACache.svg?style=flat)](http://cocoapods.org/pods/DVACache)
-
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Import de DVACache.h file and use the appropriate methods (setObject...)
 
 ## Requirements
 
+None
+
 ## Installation
 
-DVACache is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
 
 ```ruby
 pod "DVACache"
 ```
+
+Run `pod install`.
 
 ## Author
 

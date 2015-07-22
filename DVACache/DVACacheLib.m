@@ -78,7 +78,7 @@
     }
     
     if (cachedObject) {
-        if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Found object for key %@",aKey);
+        if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Found object for key %@. lifetime %f",aKey,cachedObject.lifetime);
         return cachedObject;
     }
     else{

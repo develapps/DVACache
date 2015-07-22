@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 @protocol DVACacheDelegate;
 
 @interface DVACache : NSObject
-
+@property (nonatomic)       BOOL                                enabled;
 @property (nonatomic,weak)  __nullable id<DVACacheDelegate>     delegate;
 @property (nonatomic)       DVACacheDebugLevel                  debug;
 @property (nonatomic)       NSTimeInterval                      defaultEvictionTime;

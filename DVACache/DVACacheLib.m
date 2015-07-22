@@ -28,6 +28,7 @@
 
 -(instancetype)init{
     if (self=[super init]) {
+        _enabled=YES;
         _memCache=[[NSMutableDictionary alloc] init];
         _debug=DVACacheDebugNone;
         _defaultEvictionTime=60;
@@ -58,6 +59,8 @@
 
 
 -(DVACacheObject*)cacheObjectForKey:(NSString*)aKey{
+    if (!self.enabled) return nil;
+
     DVACacheObject*cachedObject=[self.memCache objectForKey:aKey];
     if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Looking for in-memory object for key %@",aKey);
     if (!cachedObject) {
@@ -86,6 +89,10 @@
 }
 
 - (void)cacheObjectForKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)( DVACacheObject* __nullable ))completion{
+    if (!self.enabled){
+        completion(nil);
+        return;
+    }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         DVACacheObject*co=[self cacheObjectForKey:aKey];
         dispatch_async(dispatch_get_main_queue(), ^{

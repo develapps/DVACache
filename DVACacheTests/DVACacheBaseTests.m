@@ -37,6 +37,51 @@ const int bigNumber=1000;
     }
 }
 
+#pragma mark - test disabled
 
+-(void)testCacheObjectDisabled{
+    self.cache.enabled=NO;
+    [self populateWithPersistance:DVACacheInMemory andLifetime:3000];
+    for (int i=0; i<self.objectsNumber; i++) {
+        id cachedObject=[self.cache cacheObjectForKey:[NSString stringWithFormat:@"Key%i",i]];
+        XCTAssert(cachedObject==nil,@"This object should not exist, because cache is disabled: Key%i",i);
+    }
+}
 
+-(void)testObjectDisabled{
+    self.cache.enabled=NO;
+    [self populateWithPersistance:DVACacheInMemory andLifetime:3000];
+    for (int i=0; i<self.objectsNumber; i++) {
+        id cachedObject=[self.cache objectForKey:[NSString stringWithFormat:@"Key%i",i]];
+        XCTAssert(cachedObject==nil,@"This object should not exist, because cache is disabled: Key%i",i);
+    }
+}
+
+-(void)testCacheObjectAsyncDisabled{
+    self.cache.enabled=NO;
+    [self populateWithPersistance:DVACacheInMemory andLifetime:3000];
+    for (int i=0; i<self.objectsNumber; i++) {
+        NSString * akey=[NSString stringWithFormat:@"Key%i",i];
+        XCTestExpectation*expectation=[self expectationWithDescription:akey];
+        [self.cache cacheObjectForKey:akey withCompletionBlock:^(DVACacheObject * cachedObject) {
+            XCTAssert(cachedObject==nil,@"This object NOT should exist: Key%i",i);
+            [expectation fulfill];
+        }];
+    }
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+-(void)testObjectAsyncDisabled{
+    self.cache.enabled=NO;
+    [self populateWithPersistance:DVACacheInMemory andLifetime:3000];
+    for (int i=0; i<self.objectsNumber; i++) {
+        NSString * akey=[NSString stringWithFormat:@"Key%i",i];
+        XCTestExpectation*expectation=[self expectationWithDescription:akey];
+        [self.cache objectForKey:akey withCompletionBlock:^(id<NSCoding> cachedObject) {
+            XCTAssert(cachedObject==nil,@"This object NOT should exist: Key%i",i);
+            [expectation fulfill];
+        }];
+    }
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+}
 @end

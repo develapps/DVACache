@@ -29,16 +29,20 @@ typedef enum : NSUInteger {
 - (void)setCacheObject:(nonnull DVACacheObject*)object forKey:(nonnull NSString*)aKey;
 - (DVACacheObject* __nullable)cacheObjectForKey:(nonnull NSString*)aKey;
 
-// For big objects, better call this. Completion blocks will be called on main thread
-- (void)cacheObjectForKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)( DVACacheObject* __nullable ))completion;
-- (void)setCacheObject:(nonnull DVACacheObject*)object forKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)())completion;
 
 #pragma mark - convenience setter/getter
 
 - (void)setObject:(nonnull id  <NSCoding>)object forKey:(nonnull NSString*)aKey;
 - (__nullable id<NSCoding>)objectForKey:(nonnull NSString*)aKey;
 
+
+#pragma mark - Async getter/setters
+
 // For big objects, better call this. Completion block will be called on main thread
+
+- (void)cacheObjectForKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)( DVACacheObject* __nullable ))completion;
+- (void)setCacheObject:(nonnull DVACacheObject*)object forKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)())completion;
+
 - (void)objectForKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)( id<NSCoding> __nullable ))completion;
 - (void)setObject:(nonnull id  <NSCoding>)object forKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)())completion;
 

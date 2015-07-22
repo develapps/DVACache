@@ -29,8 +29,9 @@
 -(instancetype)init{
     if (self=[super init]) {
         _memCache=[[NSMutableDictionary alloc] init];
-
         _debug=DVACacheDebugNone;
+        _defaultEvictionTime=60;
+        _defaultPersistance=DVACacheInMemory;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAllMemoryCachedData) name:UIApplicationDidReceiveMemoryWarningNotification object:[UIApplication sharedApplication]];
     }
     return self;
@@ -110,11 +111,11 @@
     DVACacheObject*cacheObject=[DVACacheObject new];
     
     // Just in memory
-    cacheObject.persistance=DVACacheInMemory;
+    cacheObject.persistance=self.defaultPersistance;
     cacheObject.cachedData=object;
     
-    // One hour
-    cacheObject.lifetime=3600;
+    // One minute
+    cacheObject.lifetime=self.defaultEvictionTime;
     [self setCacheObject:cacheObject forKey:aKey];
 }
 
@@ -138,6 +139,7 @@
     });
 }
 
+
 #pragma mark  - cleanup
 
 -(BOOL)cacheObjectCleanup:(DVACacheObject*)cachedObject forKey:(NSString*)key{
@@ -145,7 +147,7 @@
         if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: cleaning object for key %@",key);
         if (cachedObject.persistance & DVACacheInMemory) {
         if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: cleaning in-memory object for key %@",key);
-            [self.memCache removeObjectForKey:key];
+            [self removeMemoryCachedDataForKey:key];
         }
         if (cachedObject.persistance & DVACacheOnDisk) {
         if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: cleaning on-disk object for key %@",key);
@@ -160,12 +162,23 @@
 
 -(void)removeAllMemoryCachedData{
     if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Cleaning in memory cache");
+    [self.delegate cacheWillEvictObjectsForKeys:[self.memCache allKeys] fromPersistanceCache:DVACacheInMemory];
     [self.memCache removeAllObjects];
 }
+
+
+#pragma mark - memory removal base method
+
+-(void)removeMemoryCachedDataForKey:(NSString*)aKey{
+    [self.delegate cacheWillEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheInMemory];
+    [self.memCache removeObjectForKey:aKey];
+}
+
 
 #pragma - disk persistance
 
 -(BOOL)removeDiskCachedDataForKey:(NSString*)aKey{
+    [self.delegate cacheWillEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheOnDisk];
     NSArray*urls=[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     NSURL*url=[urls firstObject];
     NSString*path=[[url path] stringByAppendingPathComponent:aKey];
@@ -178,6 +191,7 @@
     NSURL*url=[urls firstObject];
     NSArray*files=[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[url path] error:nil];
     if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Cleaning on-disk cache: %lu objects",(unsigned long)[files count]);
+    [self.delegate cacheWillEvictObjectsForKeys:@[files] fromPersistanceCache:DVACacheInMemory];
     for (NSString*file in files) {
         [[NSFileManager defaultManager] removeItemAtPath:[[url path] stringByAppendingPathComponent:file] error:nil];
     }

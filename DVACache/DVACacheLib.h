@@ -17,9 +17,15 @@ typedef enum : NSUInteger {
     DVACacheDebugHigh       = 2,
 } DVACacheDebugLevel;
 
+
+@protocol DVACacheDelegate;
+
 @interface DVACache : NSObject
 
-@property (nonatomic) DVACacheDebugLevel debug;
+@property (nonatomic,weak)  __nullable id<DVACacheDelegate>     delegate;
+@property (nonatomic)       DVACacheDebugLevel                  debug;
+@property (nonatomic)       NSTimeInterval                      defaultEvictionTime;
+@property (nonatomic)       DVACachePersistance                 defaultPersistance;
 
 + (nonnull instancetype)sharedInstance;
 
@@ -53,3 +59,14 @@ typedef enum : NSUInteger {
 -(void)removeAllDiskCachedData;
 
 @end
+
+
+#pragma mark - DVACacheDelegate
+
+@protocol DVACacheDelegate <NSObject>
+
+-(void)cacheWillEvictObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
+
+@end
+
+

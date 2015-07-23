@@ -7,7 +7,7 @@
 //
 
 #import "DVACacheLib.h"
-
+#import <DVACategories/NSString+DVALib.h>
 
 #pragma mark - DVACACHE
 
@@ -184,30 +184,30 @@
 
 #pragma - disk persistance
 
--(BOOL)removeDiskCachedDataForKey:(NSString*)aKey{
-    [self.delegate cacheWillEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheOnDisk];
+-(NSString*)cachePath{
     NSArray*urls=[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     NSURL*url=[urls firstObject];
-    NSString*path=[[url path] stringByAppendingPathComponent:aKey];
+    return [url path];
+}
+
+-(BOOL)removeDiskCachedDataForKey:(NSString*)aKey{
+    [self.delegate cacheWillEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheOnDisk];
+    NSString*path=[[self cachePath] stringByAppendingPathComponent:aKey];
     return [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 }
 
 -(void)removeAllDiskCachedData{
 
-    NSArray*urls=[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
-    NSURL*url=[urls firstObject];
-    NSArray*files=[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[url path] error:nil];
+    NSArray*files=[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self cachePath] error:nil];
     if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Cleaning on-disk cache: %lu objects",(unsigned long)[files count]);
     [self.delegate cacheWillEvictObjectsForKeys:@[files] fromPersistanceCache:DVACacheInMemory];
     for (NSString*file in files) {
-        [[NSFileManager defaultManager] removeItemAtPath:[[url path] stringByAppendingPathComponent:file] error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:[[self cachePath] stringByAppendingPathComponent:file] error:nil];
     }
 }
 
 -(void)cacheDataOnDisk:(DVACacheObject *)object forKey:(NSString*)aKey{
-    NSArray*urls=[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
-    NSURL*url=[urls firstObject];
-    NSString*path=[[url path] stringByAppendingPathComponent:aKey];
+    NSString*path=[[self cachePath] stringByAppendingPathComponent:aKey];
     if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Caching on disk object for key %@",aKey);
     else if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Caching on disk object for key %@ at path %@",aKey,path);
     [NSKeyedArchiver archiveRootObject:object toFile:path];
@@ -215,9 +215,7 @@
 }
 
 -(DVACacheObject*)diskCachedDataForKey:(NSString*)aKey{
-    NSArray*urls=[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
-    NSURL*url=[urls firstObject];
-    NSString*path=[[url path] stringByAppendingPathComponent:aKey];
+    NSString*path=[[self cachePath] stringByAppendingPathComponent:aKey];
     return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
 

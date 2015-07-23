@@ -1,0 +1,10 @@
+PODS:
+  - DVACategories/NSString (1.4.0)
+
+DEPENDENCIES:
+  - DVACategories/NSString (~> 1.4.0)
+
+SPEC CHECKSUMS:
+  DVACategories: 493e70ef0400070133afed684125fbd71acbfd42
+
+COCOAPODS: 0.37.2

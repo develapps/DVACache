@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DVACache/DVACacheLib.m"
-            timestampString = "459249675.558444"
+            timestampString = "459336919.70059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "-cacheDataOnDisk:forKey:"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "-removeDiskCachedDataForKey:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,44 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DVACache/DVACacheLib.m"
-            timestampString = "459249675.558444"
+            timestampString = "459336919.70059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "-removeAllDiskCachedData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DVACache/DVACacheLib.m"
-            timestampString = "459249675.558444"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "-removeAllDiskCachedData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DVACache/DVACacheLib.m"
-            timestampString = "459249675.558444"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "-cacheDataOnDisk:forKey:"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-removeDiskCachedDataForKey:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DVACache/DVACacheLib.m"
-            timestampString = "459249675.558444"
+            timestampString = "459336919.70059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "-cacheDataOnDisk:forKey:"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "-removeDiskCachedDataForKey:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

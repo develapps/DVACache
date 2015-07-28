@@ -27,8 +27,11 @@ typedef enum : NSUInteger {
 @property (nonatomic)       NSTimeInterval                      defaultEvictionTime;
 @property (nonatomic)       DVACachePersistance                 defaultPersistance;
 
+// A shared instance uses dvacache bundle identifier.
 + (nonnull instancetype)sharedInstance;
 
+// If you want a specific cache for a kind of object, use a named cache.
+- (instancetype)initWithName:(nonnull NSString*)cacheName;
 
 #pragma mark - setter/getter with a cache object
 

@@ -31,7 +31,7 @@ typedef enum : NSUInteger {
 + (nonnull instancetype)sharedInstance;
 
 // If you want a specific cache for a kind of object, use a named cache.
-- (instancetype)initWithName:(nonnull NSString*)cacheName;
+- (nullable instancetype)initWithName:(nonnull NSString*)cacheName;
 
 #pragma mark - setter/getter with a cache object
 

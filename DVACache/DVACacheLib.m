@@ -30,7 +30,7 @@
 
 - (instancetype)initWithName:(NSString*)cacheName
 {
-    self = [super init];
+    self = [self init];
     if (self) {
         self.cacheName=cacheName;
     }

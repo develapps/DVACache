@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DVACache"
-  s.version          = "0.5.1"
+  s.version          = "0.6.0"
   s.summary          = "An in-memory and on-disk with autoeviction Cache"
   s.description      = <<-DESC
                        An in-memory and on-disk with autoeviction Cache.

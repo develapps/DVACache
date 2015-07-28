@@ -199,14 +199,14 @@
 -(NSString*)cachePath{
     NSArray*urls=[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     NSURL*url=[urls firstObject];
-    url=[url URLByAppendingPathComponent:self.cacheName];
+    url=[url URLByAppendingPathComponent:[self.cacheName dva_generateMD5]];
     [[NSFileManager defaultManager] createDirectoryAtURL:url withIntermediateDirectories:YES attributes:nil error:nil];
     return [url path];
 }
 
 -(BOOL)removeDiskCachedDataForKey:(NSString*)aKey{
     [self.delegate cacheWillEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheOnDisk];
-    NSString*path=[[self cachePath] stringByAppendingPathComponent:aKey];
+    NSString*path=[[self cachePath] stringByAppendingPathComponent:[aKey dva_generateMD5]];
     return [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 }
 
@@ -221,7 +221,7 @@
 }
 
 -(void)cacheDataOnDisk:(DVACacheObject *)object forKey:(NSString*)aKey{
-    NSString*path=[[self cachePath] stringByAppendingPathComponent:aKey];
+    NSString*path=[[self cachePath] stringByAppendingPathComponent:[aKey dva_generateMD5]];
     if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Caching on disk object for key %@",aKey);
     else if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Caching on disk object for key %@ at path %@",aKey,path);
     [NSKeyedArchiver archiveRootObject:object toFile:path];
@@ -229,7 +229,7 @@
 }
 
 -(DVACacheObject*)diskCachedDataForKey:(NSString*)aKey{
-    NSString*path=[[self cachePath] stringByAppendingPathComponent:aKey];
+    NSString*path=[[self cachePath] stringByAppendingPathComponent:[aKey dva_generateMD5]];
     return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
 

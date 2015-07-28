@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DVACache"
-  s.version          = "0.4.0"
+  s.version          = "0.5.0"
   s.summary          = "An in-memory and on-disk with autoeviction Cache"
   s.description      = <<-DESC
                        An in-memory and on-disk with autoeviction Cache.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'DVACache/**/*'
-  s.dependency 'DVACategories/NSString', '~> 1.4.0'
+  s.dependency 'DVACategories/NSString', '~> 1.4'
 
 
 #  s.resource_bundles = {

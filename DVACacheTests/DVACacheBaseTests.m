@@ -18,6 +18,7 @@ const int bigNumber=1000;
     _cache=[DVACache new];
     _cache.debug=DVACacheDebugHigh;
     _objectsNumber=1;
+    self.cache.enabled=YES;
 }
 
 - (void)tearDown {

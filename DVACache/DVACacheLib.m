@@ -12,7 +12,9 @@
 #pragma mark - DVACACHE
 
 @interface DVACache () 
-@property (nonatomic,strong) NSMutableDictionary*memCache;
+@property (nonatomic,strong) NSMutableDictionary    *memCache;
+@property (nonatomic,strong) NSString               *cacheName;
+
 @end
 
 @implementation DVACache
@@ -26,8 +28,18 @@
     return _sharedInstace;
 }
 
+- (instancetype)initWithName:(NSString*)cacheName
+{
+    self = [super init];
+    if (self) {
+        self.cacheName=cacheName;
+    }
+    return self;
+}
+
 -(instancetype)init{
     if (self=[super init]) {
+        _cacheName=[[NSBundle bundleForClass:[self class]] bundleIdentifier];
         _enabled=YES;
         _memCache=[[NSMutableDictionary alloc] init];
         _debug=DVACacheDebugNone;
@@ -187,6 +199,8 @@
 -(NSString*)cachePath{
     NSArray*urls=[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     NSURL*url=[urls firstObject];
+    url=[url URLByAppendingPathComponent:self.cacheName];
+    [[NSFileManager defaultManager] createDirectoryAtURL:url withIntermediateDirectories:YES attributes:nil error:nil];
     return [url path];
 }
 

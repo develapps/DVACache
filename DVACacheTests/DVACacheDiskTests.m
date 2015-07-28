@@ -29,7 +29,7 @@
 
 - (void)testOnDiskAsyncCache{
     [self populateWithPersistance:DVACacheOnDisk andLifetime:3000];
-    
+    [NSThread sleepForTimeInterval:1];
     for (int i=0; i<self.objectsNumber; i++) {
         NSString * akey=[NSString stringWithFormat:@"Key%i",i];
         XCTestExpectation*expectation=[self expectationWithDescription:akey];

@@ -59,20 +59,7 @@
     
     [NSThread sleepForTimeInterval:3];
     
-    // Cache should evict now
-    
-    for (int i=0; i<self.objectsNumber; i++) {
-        NSString * akey=[NSString stringWithFormat:@"Key%i",i];
-        XCTestExpectation*expectation=[self expectationWithDescription:akey];
-        [self.cache objectForKey:akey withCompletionBlock:^(id<NSCoding> object) {
-            NSObject*cachedObject=(NSObject*)object;
-            XCTAssert(cachedObject,@"This object should exist: Key%i",i);
-            XCTAssert([cachedObject isKindOfClass:[NSDictionary class]],@"This object should be an NSDictionary: Key%i",i);
-            [expectation fulfill];
-        }];
-    }
-    [self waitForExpectationsWithTimeout:5 handler:nil];
-    
+    // Cache should have evicted
     // It should be empty now
     
     for (int i=0; i<self.objectsNumber; i++) {

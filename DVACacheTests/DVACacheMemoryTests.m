@@ -47,11 +47,6 @@
         XCTAssert([cachedObject isKindOfClass:[NSDictionary class]],@"This object should be an NSDictionary: Key%i",i);
     }
     [NSThread sleepForTimeInterval:3];
-    for (int i=0; i<self.objectsNumber; i++) {
-        id cachedObject=[self.cache objectForKey:[NSString stringWithFormat:@"Key%i",i]];
-        XCTAssert(cachedObject,@"This object should still exist: Key%i",i);
-        XCTAssert([cachedObject isKindOfClass:[NSDictionary class]],@"This object should still be an NSDictionary: Key%i",i);
-    }
     
     for (int i=0; i<self.objectsNumber; i++) {
         id cachedObject=[self.cache objectForKey:[NSString stringWithFormat:@"Key%i",i]];

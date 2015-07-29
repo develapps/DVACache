@@ -89,6 +89,11 @@
         [self setCacheObject:cachedObject forKey:aKey];
     }
     
+    if (cachedObject.lifetime<=0) {
+        if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Found object for key %@ but lifetime was %.1f, returning nil",aKey,cachedObject.lifetime);
+        return nil;
+    }
+    
     if (cachedObject) {
         if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Found object for key %@. lifetime %.1f",aKey,cachedObject.lifetime);
         return cachedObject;

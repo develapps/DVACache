@@ -17,7 +17,6 @@ typedef enum : NSUInteger {
     DVACacheDebugHigh       = 2,
 } DVACacheDebugLevel;
 
-
 @protocol DVACacheDelegate;
 
 @interface DVACache : NSObject
@@ -37,13 +36,14 @@ typedef enum : NSUInteger {
 
 - (void)setCacheObject:(nonnull DVACacheObject*)object forKey:(nonnull NSString*)aKey;
 - (DVACacheObject* __nullable)cacheObjectForKey:(nonnull NSString*)aKey;
+- (void)removeCacheObjectForKey:(nonnull NSString*)aKey;
 
 
 #pragma mark - convenience setter/getter
 
 - (void)setObject:(nonnull id  <NSCoding>)object forKey:(nonnull NSString*)aKey;
 - (__nullable id<NSCoding>)objectForKey:(nonnull NSString*)aKey;
-
+- (void)removeObjectForKey:(nonnull NSString*)aKey;
 
 #pragma mark - Async getter/setters
 

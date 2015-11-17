@@ -93,4 +93,26 @@
         XCTAssert((cachedObject.persistance & DVACacheInMemory), @"This object should have an in-memory persistance type.");
     }
 }
+
+-(void)testCachedObjectsRemoval{
+    [self populateWithPersistance:DVACacheOnDisk|DVACacheInMemory andLifetime:3600];
+    
+    for (int i=0; i<self.objectsNumber/2; i++) {
+        NSString * akey=[NSString stringWithFormat:@"Key%i",i];
+        [self.cache removeObjectForKey:akey];
+    }
+    for (int i=0; i<self.objectsNumber/2; i++) {
+        NSString * akey=[NSString stringWithFormat:@"Key%i",i];
+        DVACacheObject*cachedObject=[self.cache cacheObjectForKey:akey];
+        XCTAssert(!cachedObject,@"This object should not exist: Key%i",i);
+    }
+    for (int i=self.objectsNumber/2; i<self.objectsNumber; i++) {
+        NSString * akey=[NSString stringWithFormat:@"Key%i",i];
+        DVACacheObject*cachedObject=[self.cache cacheObjectForKey:akey];
+        XCTAssert(cachedObject,@"This object should exist: Key%i",i);
+        XCTAssert([(NSObject*)cachedObject.cachedData isKindOfClass:[NSDictionary class]],@"This object should be an NSDictionary: Key%i",i);
+        XCTAssert((cachedObject.persistance & DVACacheInMemory), @"This object should have an in-memory persistance type.");
+    }
+}
+
 @end

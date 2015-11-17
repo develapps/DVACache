@@ -9,13 +9,16 @@
 
 Pod::Spec.new do |s|
   s.name             = "DVACache"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "An in-memory and on-disk with autoeviction Cache"
   s.description      = <<-DESC
                        An in-memory and on-disk with autoeviction Cache.
 
                        * You can show in memory
                        * Or not!
+
+                       New on 1.1.0:
+                        Added object removal with removeObjectForKey:
                        DESC
   s.homepage         = "https://bitbucket.com/DVALibs"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"

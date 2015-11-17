@@ -43,7 +43,7 @@
         _enabled=YES;
         _memCache=[[NSMutableDictionary alloc] init];
         _debug=DVACacheDebugNone;
-        _defaultEvictionTime=60;
+        _defaultEvictionTime=300;
         _defaultPersistance=DVACacheInMemory;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAllMemoryCachedData) name:UIApplicationDidReceiveMemoryWarningNotification object:[UIApplication sharedApplication]];
     }
@@ -105,6 +105,20 @@
 
 }
 
+-(void)removeCacheObjectForKey:(NSString *)aKey{
+    if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Removing Cache object for key %@",aKey);
+    DVACacheObject*cachedObject=[self.memCache objectForKey:aKey];
+    if (cachedObject) {
+        if (_debug>DVACacheDebugHigh) NSLog(@"DVACACHE: Removing Cache object from memory for key %@",aKey);
+        [self removeMemoryCachedDataForKey:aKey];
+    }
+    cachedObject=[self diskCachedDataForKey:aKey];
+    if (cachedObject) {
+        if (_debug>DVACacheDebugHigh) NSLog(@"DVACACHE: Removing Cache object from disk for key %@",aKey);
+        [self removeDiskCachedDataForKey:aKey];
+    }
+}
+
 - (void)cacheObjectForKey:(nonnull NSString*)aKey withCompletionBlock:(void (^ __nonnull)( DVACacheObject* __nullable ))completion{
     if (!self.enabled){
         completion(nil);
@@ -146,6 +160,13 @@
 -(id<NSCoding>)objectForKey:(nonnull NSString*)aKey{
     DVACacheObject*cachedObject=[self cacheObjectForKey:aKey];
     return cachedObject?cachedObject.cachedData:nil;
+}
+
+-(void)removeObjectForKey:(NSString *)aKey{
+    DVACacheObject*cachedObject=[self cacheObjectForKey:aKey];
+    if (cachedObject) {
+        [self removeCacheObjectForKey:aKey];
+    }
 }
 
 -(void)objectForKey:(nonnull NSString *)aKey withCompletionBlock:(void (^ __nonnull)(id<NSCoding> __nullable))completion{

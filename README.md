@@ -17,6 +17,9 @@ pod "DVACache"
 
 Run `pod install`.
 
+New on 1.1.0:
+Added object removal with removeObjectForKey:
+
 ## Author
 
 Pablo Romeu, pablo.romeu@develapps.com

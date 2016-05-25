@@ -37,6 +37,9 @@
         XCTAssert(cachedObject,@"This object should exist: Key%i",i);
         XCTAssert([cachedObject isKindOfClass:[NSDictionary class]],@"This object should be an NSDictionary: Key%i",i);
     }
+    XCTAssert([self.cache memSize]>0,@"Memory size should be >0 %.0f",[self.cache memSize]);
+    XCTAssert([[self.cache memCachedObjects] count]==self.objectsNumber,@"Memory cached objects should be the same");
+
 }
 
 - (void)testInMemoryCacheEviction{
@@ -93,7 +96,7 @@
             XCTAssert(cachedObject==nil,@"This object should not exist: Key%i",i);
         }
     });
-    [self waitForExpectationsWithTimeout:5 handler:nil];
+    [self waitForExpectationsWithTimeout:15 handler:nil];
 }
 
 -(void)cacheWillEvictObjectsForKeys:(NSArray * __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache{

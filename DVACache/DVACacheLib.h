@@ -29,6 +29,16 @@ typedef enum : NSUInteger {
 // A shared instance uses dvacache bundle identifier.
 + (nonnull instancetype)sharedInstance;
 
+// List keys of memoryCcached objects
+
+- (nullable NSArray<NSString*>*)memCachedObjects;
+- (nullable NSArray<NSString*>*)diskCachedObjects;
+
+// Size of cache in MBytes
+
+- (double)memSize;
+- (double)diskSize;
+
 // If you want a specific cache for a kind of object, use a named cache.
 - (nullable instancetype)initWithName:(nonnull NSString*)cacheName;
 
@@ -67,9 +77,9 @@ typedef enum : NSUInteger {
 #pragma mark - DVACacheDelegate
 
 @protocol DVACacheDelegate <NSObject>
-
--(void)cacheWillEvictObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
-
+@optional
+-(void)cache:(DVACache*)cache willCacheObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
+-(void)cache:(DVACache*)cache willEvictObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
 @end
 
 

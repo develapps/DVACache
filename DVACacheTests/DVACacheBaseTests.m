@@ -47,6 +47,7 @@ const int bigNumber=1000;
         id cachedObject=[self.cache cacheObjectForKey:[NSString stringWithFormat:@"Key%i",i]];
         XCTAssert(cachedObject==nil,@"This object should not exist, because cache is disabled: Key%i",i);
     }
+    
 }
 
 -(void)testObjectDisabled{

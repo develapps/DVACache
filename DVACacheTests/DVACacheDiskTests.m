@@ -39,6 +39,7 @@
             XCTAssert([cachedObject isKindOfClass:[NSDictionary class]],@"This object should be an NSDictionary: Key%i",i);
             [expectation fulfill];
         }];
+        
     }
     [self waitForExpectationsWithTimeout:5 handler:nil];
 }

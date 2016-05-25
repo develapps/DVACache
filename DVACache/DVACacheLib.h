@@ -78,8 +78,8 @@ typedef enum : NSUInteger {
 
 @protocol DVACacheDelegate <NSObject>
 @optional
--(void)cache:(DVACache*)cache willCacheObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
--(void)cache:(DVACache*)cache willEvictObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
+-(void)cache:(nonnull DVACache*)cache willCacheObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
+-(void)cache:(nonnull DVACache*)cache willEvictObjectsForKeys:(NSArray* __nonnull)keysArray fromPersistanceCache:(DVACachePersistance)cache;
 @end
 
 

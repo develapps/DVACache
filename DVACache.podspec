@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
                         Added object removal with removeObjectForKey:
                         New on 1.2.0:
                         - Added list cached objects.
-                        - Added list memory consumption.
+                        - Added list memory consumption.ll
 
                        DESC
   s.homepage         = "https://bitbucket.com/DVALibs"

@@ -57,13 +57,46 @@
 
 #pragma - Setter & getter
 
+- (nullable NSArray<NSString*>*)memCachedObjects{
+    return [self.memCache allKeys];
+}
+- (nullable NSArray<NSString*>*)diskCachedObjects{
+    return [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self cachePath] error:nil];
+
+}
+
+// Size of cache in MBytes
+
+- (double)memSize{
+    double size = 0;
+    for (NSObject <NSCoding>*obj in [self.memCache  allValues]) {
+        size += [[NSKeyedArchiver archivedDataWithRootObject:obj] length];
+    }
+    return size;
+}
+- (double)diskSize{
+    double size = 0;
+    for (NSString*obj in [self diskCachedObjects]) {
+        size += [[[NSFileManager defaultManager] attributesOfItemAtPath:obj error:nil] fileSize];
+    }
+    return size;
+
+}
+
+
 -(void)setCacheObject:(DVACacheObject *)object forKey:(NSString*)aKey{
     if (object.persistance & DVACacheInMemory){
             if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Caching in memory object for key %@",aKey);
+        if ([self.delegate respondsToSelector:@selector(cache:willCacheObjectsForKeys:fromPersistanceCache:)]) {
+            [self.delegate cache:self willCacheObjectsForKeys:@[object] fromPersistanceCache:DVACacheInMemory];
+        }
             [self.memCache setObject:object forKey:aKey];
     }
     
     if (object.persistance & DVACacheOnDisk){
+        if ([self.delegate respondsToSelector:@selector(cache:willCacheObjectsForKeys:fromPersistanceCache:)]) {
+            [self.delegate cache:self willCacheObjectsForKeys:@[object] fromPersistanceCache:DVACacheOnDisk];
+        }
             [self cacheDataOnDisk:object forKey:aKey];
     }
 }
@@ -89,7 +122,7 @@
         [self setCacheObject:cachedObject forKey:aKey];
     }
     
-    if (cachedObject.lifetime<=0) {
+    if (cachedObject && cachedObject.lifetime<=0) {
         if (_debug>DVACacheDebugNone) NSLog(@"DVACACHE: Found object for key %@ but lifetime was %.1f, returning nil",aKey,cachedObject.lifetime);
         return nil;
     }
@@ -207,7 +240,9 @@
 
 -(void)removeAllMemoryCachedData{
     if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Cleaning in memory cache");
-    [self.delegate cacheWillEvictObjectsForKeys:[self.memCache allKeys] fromPersistanceCache:DVACacheInMemory];
+    if ([self.delegate respondsToSelector:@selector(cache:willEvictObjectsForKeys:fromPersistanceCache:)]) {
+        [self.delegate cache:self willEvictObjectsForKeys:[self.memCache allKeys] fromPersistanceCache:DVACacheInMemory];
+    }
     [self.memCache removeAllObjects];
 }
 
@@ -215,7 +250,9 @@
 #pragma mark - memory removal base method
 
 -(void)removeMemoryCachedDataForKey:(NSString*)aKey{
-    [self.delegate cacheWillEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheInMemory];
+    if ([self.delegate respondsToSelector:@selector(cache:willEvictObjectsForKeys:fromPersistanceCache:)]) {
+        [self.delegate cache:self willEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheInMemory];
+    }
     [self.memCache removeObjectForKey:aKey];
 }
 
@@ -231,7 +268,9 @@
 }
 
 -(BOOL)removeDiskCachedDataForKey:(NSString*)aKey{
-    [self.delegate cacheWillEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheOnDisk];
+    if ([self.delegate respondsToSelector:@selector(cache:willEvictObjectsForKeys:fromPersistanceCache:)]) {
+        [self.delegate cache:self willEvictObjectsForKeys:@[aKey] fromPersistanceCache:DVACacheOnDisk];
+    }
     NSString*path=[[self cachePath] stringByAppendingPathComponent:[aKey dva_generateMD5]];
     return [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 }
@@ -240,7 +279,9 @@
 
     NSArray*files=[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self cachePath] error:nil];
     if (_debug>DVACacheDebugLow) NSLog(@"DVACACHE: Cleaning on-disk cache: %lu objects",(unsigned long)[files count]);
-    [self.delegate cacheWillEvictObjectsForKeys:@[files] fromPersistanceCache:DVACacheInMemory];
+    if ([self.delegate respondsToSelector:@selector(cache:willEvictObjectsForKeys:fromPersistanceCache:)]) {
+        [self.delegate cache:self willEvictObjectsForKeys:files fromPersistanceCache:DVACacheOnDisk];
+    }
     for (NSString*file in files) {
         [[NSFileManager defaultManager] removeItemAtPath:[[self cachePath] stringByAppendingPathComponent:file] error:nil];
     }

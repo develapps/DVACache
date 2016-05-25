@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3014C7342FB9F8B5D02730A8 /* libPods-DVACache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F552265E54BEEE113F50A82B /* libPods-DVACache.a */; };
 		6E18EE301B5E52A000490CE2 /* DVACacheObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E18EE2E1B5E52A000490CE2 /* DVACacheObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E18EE311B5E52A000490CE2 /* DVACacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */; };
 		6E18EE351B5E5D7700490CE2 /* DVACache.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6E18EE331B5E5D7700490CE2 /* DVACache.podspec */; };
@@ -20,8 +21,7 @@
 		6E19FD621B5E219D00EFF984 /* DVACache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E19FD561B5E219D00EFF984 /* DVACache.framework */; };
 		6E19FD741B5E21FB00EFF984 /* DVACacheLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E19FD721B5E21FB00EFF984 /* DVACacheLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E19FD751B5E21FB00EFF984 /* DVACacheLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E19FD731B5E21FB00EFF984 /* DVACacheLib.m */; };
-		9052981785E1CD576CAD0D30 /* libPods-DVACacheTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062BB0A45F93627477030F /* libPods-DVACacheTests.a */; };
-		CE26A77DD1C95FFF9896891E /* libPods-DVACache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8651DF850DA6D1E75A7B0D /* libPods-DVACache.a */; };
+		DD0B657C061C31A20B7244A3 /* libPods-DVACacheTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244EAD47B507B86F10F961B3 /* libPods-DVACacheTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07062BB0A45F93627477030F /* libPods-DVACacheTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACacheTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		244EAD47B507B86F10F961B3 /* libPods-DVACacheTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACacheTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AE5118B61EEAE0C0ED86A9 /* Pods-DVACacheTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACacheTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DVACacheTests/Pods-DVACacheTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E18EE2E1B5E52A000490CE2 /* DVACacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVACacheObject.h; sourceTree = "<group>"; };
 		6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVACacheObject.m; sourceTree = "<group>"; };
@@ -54,9 +54,9 @@
 		6E19FD671B5E219D00EFF984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E19FD721B5E21FB00EFF984 /* DVACacheLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVACacheLib.h; sourceTree = "<group>"; };
 		6E19FD731B5E21FB00EFF984 /* DVACacheLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVACacheLib.m; sourceTree = "<group>"; };
-		9B8651DF850DA6D1E75A7B0D /* libPods-DVACache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACache.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A644DAEA3855E873FCBEAC /* Pods-DVACache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACache.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DVACache/Pods-DVACache.debug.xcconfig"; sourceTree = "<group>"; };
 		F0B80E31FE8325463C0D1780 /* Pods-DVACacheTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACacheTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DVACacheTests/Pods-DVACacheTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F552265E54BEEE113F50A82B /* libPods-DVACache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACache.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD098D14DC5521401B40950C /* Pods-DVACache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACache.release.xcconfig"; path = "Pods/Target Support Files/Pods-DVACache/Pods-DVACache.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE26A77DD1C95FFF9896891E /* libPods-DVACache.a in Frameworks */,
+				3014C7342FB9F8B5D02730A8 /* libPods-DVACache.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E19FD621B5E219D00EFF984 /* DVACache.framework in Frameworks */,
-				9052981785E1CD576CAD0D30 /* libPods-DVACacheTests.a in Frameworks */,
+				DD0B657C061C31A20B7244A3 /* libPods-DVACacheTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,8 +165,8 @@
 		73E9680CAC390D0407902699 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B8651DF850DA6D1E75A7B0D /* libPods-DVACache.a */,
-				07062BB0A45F93627477030F /* libPods-DVACacheTests.a */,
+				F552265E54BEEE113F50A82B /* libPods-DVACache.a */,
+				244EAD47B507B86F10F961B3 /* libPods-DVACacheTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

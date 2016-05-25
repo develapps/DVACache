@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65D33BC2193C1A9F212CB784 /* libPods-DVACache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C37571708B69B57FC9CD1B7C /* libPods-DVACache.a */; };
+		3014C7342FB9F8B5D02730A8 /* libPods-DVACache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F552265E54BEEE113F50A82B /* libPods-DVACache.a */; };
 		6E18EE301B5E52A000490CE2 /* DVACacheObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E18EE2E1B5E52A000490CE2 /* DVACacheObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E18EE311B5E52A000490CE2 /* DVACacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */; };
 		6E18EE351B5E5D7700490CE2 /* DVACache.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6E18EE331B5E5D7700490CE2 /* DVACache.podspec */; };
@@ -21,7 +21,7 @@
 		6E19FD621B5E219D00EFF984 /* DVACache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E19FD561B5E219D00EFF984 /* DVACache.framework */; };
 		6E19FD741B5E21FB00EFF984 /* DVACacheLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E19FD721B5E21FB00EFF984 /* DVACacheLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E19FD751B5E21FB00EFF984 /* DVACacheLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E19FD731B5E21FB00EFF984 /* DVACacheLib.m */; };
-		CB51F6D38A21640398112F80 /* libPods-DVACacheTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AA52243897F1344318C7C8 /* libPods-DVACacheTests.a */; };
+		DD0B657C061C31A20B7244A3 /* libPods-DVACacheTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244EAD47B507B86F10F961B3 /* libPods-DVACacheTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		244EAD47B507B86F10F961B3 /* libPods-DVACacheTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACacheTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AE5118B61EEAE0C0ED86A9 /* Pods-DVACacheTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACacheTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DVACacheTests/Pods-DVACacheTests.release.xcconfig"; sourceTree = "<group>"; };
-		44AA52243897F1344318C7C8 /* libPods-DVACacheTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACacheTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E18EE2E1B5E52A000490CE2 /* DVACacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVACacheObject.h; sourceTree = "<group>"; };
 		6E18EE2F1B5E52A000490CE2 /* DVACacheObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVACacheObject.m; sourceTree = "<group>"; };
 		6E18EE331B5E5D7700490CE2 /* DVACache.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DVACache.podspec; sourceTree = "<group>"; };
@@ -55,8 +55,8 @@
 		6E19FD721B5E21FB00EFF984 /* DVACacheLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVACacheLib.h; sourceTree = "<group>"; };
 		6E19FD731B5E21FB00EFF984 /* DVACacheLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVACacheLib.m; sourceTree = "<group>"; };
 		A1A644DAEA3855E873FCBEAC /* Pods-DVACache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACache.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DVACache/Pods-DVACache.debug.xcconfig"; sourceTree = "<group>"; };
-		C37571708B69B57FC9CD1B7C /* libPods-DVACache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACache.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0B80E31FE8325463C0D1780 /* Pods-DVACacheTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACacheTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DVACacheTests/Pods-DVACacheTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F552265E54BEEE113F50A82B /* libPods-DVACache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVACache.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD098D14DC5521401B40950C /* Pods-DVACache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVACache.release.xcconfig"; path = "Pods/Target Support Files/Pods-DVACache/Pods-DVACache.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65D33BC2193C1A9F212CB784 /* libPods-DVACache.a in Frameworks */,
+				3014C7342FB9F8B5D02730A8 /* libPods-DVACache.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E19FD621B5E219D00EFF984 /* DVACache.framework in Frameworks */,
-				CB51F6D38A21640398112F80 /* libPods-DVACacheTests.a in Frameworks */,
+				DD0B657C061C31A20B7244A3 /* libPods-DVACacheTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,8 +165,8 @@
 		73E9680CAC390D0407902699 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C37571708B69B57FC9CD1B7C /* libPods-DVACache.a */,
-				44AA52243897F1344318C7C8 /* libPods-DVACacheTests.a */,
+				F552265E54BEEE113F50A82B /* libPods-DVACache.a */,
+				244EAD47B507B86F10F961B3 /* libPods-DVACacheTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 		6E19FD4D1B5E219D00EFF984 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Pablo Romeu";
 				TargetAttributes = {
 					6E19FD551B5E219D00EFF984 = {
@@ -408,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -426,6 +427,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -455,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -503,6 +506,7 @@
 				INFOPLIST_FILE = DVACache/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.develapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -519,6 +523,7 @@
 				INFOPLIST_FILE = DVACache/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.develapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -538,6 +543,7 @@
 				);
 				INFOPLIST_FILE = DVACacheTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.develapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -552,6 +558,7 @@
 				);
 				INFOPLIST_FILE = DVACacheTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.develapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

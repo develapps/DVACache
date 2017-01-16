@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DVACache"
-  s.version          = "1.2.0"
+  s.version          = "1.2.1"
   s.summary          = "An in-memory and on-disk with autoeviction Cache"
   s.description      = <<-DESC
                        An in-memory and on-disk with autoeviction Cache.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Pablo Romeu" => "pablo.romeu@develapps.com" }
-  s.source           = { :git => "https://bitbucket.com/DVALibs/DVACache.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/develapps/DVACache.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/pabloromeu'
 
   s.platform     = :ios, '8.0'

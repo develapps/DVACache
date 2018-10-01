@@ -80,7 +80,7 @@
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "-cacheWillEvictObjectsForKeys:fromPersistanceCache:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,7 +96,7 @@
             startingLineNumber = "106"
             endingLineNumber = "106"
             landmarkName = "-cacheWillEvictObjectsForKeys:fromPersistanceCache:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,7 +112,7 @@
             startingLineNumber = "104"
             endingLineNumber = "104"
             landmarkName = "-cacheWillEvictObjectsForKeys:fromPersistanceCache:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

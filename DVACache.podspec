@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DVACache"
-  s.version          = "1.2.1"
+  s.version          = "1.2.2"
   s.summary          = "An in-memory and on-disk with autoeviction Cache"
   s.description      = <<-DESC
                        An in-memory and on-disk with autoeviction Cache.
@@ -22,6 +22,8 @@ Pod::Spec.new do |s|
                         New on 1.2.0:
                         - Added list cached objects.
                         - Added list memory consumption.ll
+						New on 1.2.2:
+						- Added Xcode 10 support
 
                        DESC
   s.homepage         = "https://bitbucket.com/DVALibs"
@@ -34,7 +36,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'DVACache/**/*'
+  s.source_files = 'DVACache/**/*.{h,m}'
   s.dependency 'DVACategories/NSString', '~> 1.4'
 
 
@@ -42,7 +44,7 @@ Pod::Spec.new do |s|
 #    'DVACache' => ['Pod/Assets/*.png']
 #  }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'DVACache/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
 
 end
